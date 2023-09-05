@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-add.component.css']
 })
 export class UserAddComponent {
+showForm: any;
+
+
+
+
 
 }
