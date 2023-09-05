@@ -21,4 +21,11 @@ export class UserService {
   update(user: User) {
     return this.httpClient.patch<User>('http://localhost:3000/user/'+user._id, user);
   }
+  add(user: User) {
+    return this.httpClient.post<User>('http://localhost:3000/user', user);
+  }
+
+  delete(_id: string | undefined) {
+    return this.httpClient.delete<User>('http://localhost:3000/user/'+_id);
+  }
 }

@@ -9,7 +9,6 @@ export class User {
   constructor(obj?: User) {
     if(obj) Object.assign(this,obj);
     else {
-      this._id = '';
       this.firstName = '';
       this.lastName = '';
       this.addresse = '';

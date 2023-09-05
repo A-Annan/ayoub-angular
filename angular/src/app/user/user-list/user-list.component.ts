@@ -28,6 +28,12 @@ export class UserListComponent implements OnInit {
       });
   }
 
+  delete(user: User){
+    this.userService.delete(user._id).subscribe((data: any) => {
+      this.getData();
+    });
+  }
+
   view(user: User) {
     this.router.navigate(['/details', user._id]);
   }
