@@ -1,25 +1,9 @@
-<ul ngbNav #nav="ngbNav" activeId="1" class="nav-tabs">
-  <li [ngbNavItem]="1">
-    <button ngbNavLink>Info</button>
-    <ng-template ngbNavContent>
-      <p>
-        <app-user-info-view></app-user-info-view>
-      </p>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="2">
-    <button ngbNavLink>Projects</button>
-    <ng-template ngbNavContent>
-      <p>
-        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-        farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-        helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-      </p>
-    </ng-template>
+<!-- your navs bound to current route fragments -->
+<ul ngbNav [activeId]="route.fragment | async" activeId="info" class="nav-tabs">
+  <li [ngbNavItem]="link.url" *ngFor="let link of links">
+    <a ngbNavLink [routerLink]="link.url">{{ link.title }}</a>
   </li>
 </ul>
 
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
+<!-- and an actual outlet elsewhere -->
+<router-outlet></router-outlet>

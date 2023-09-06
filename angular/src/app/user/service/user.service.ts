@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../Entity/user.entity';
+import { Project } from 'src/app/project/Entity/project.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,9 @@ export class UserService {
 
   delete(_id: string | undefined) {
     return this.httpClient.delete<User>('http://localhost:3000/user/'+_id);
+  }
+
+  addProject(userId: string, project: Project) {
+    return this.httpClient.post<User>('http://localhost:3000/user/'+userId+'/project',{project});
   }
 }

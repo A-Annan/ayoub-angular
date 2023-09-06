@@ -22,7 +22,8 @@ export class UserInfoViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this?.route?.parent?.snapshot.params['id'];
+
     this.getData();
   }
 
